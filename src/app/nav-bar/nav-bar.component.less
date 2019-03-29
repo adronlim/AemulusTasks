@@ -1,0 +1,66 @@
+@HnavColor : #ffffff;
+@navColor : #800071;
+//.gFontImport (@name, @weights, @subsets) {
+//  @import (css) url('https://fonts.googleapis.com/css?family=Bangers');
+//}
+//.gFontImport("Bangers",400,cursive);
+.customNav{
+  height: 83px;
+  div.cusDiv{
+    background-color: #3f2e56;
+    box-shadow: 0 0 30px rgba(199, 200, 222, 0.51);
+    height: 100%;
+    width: 100% ;
+    .nav-link{
+    }
+    a.Hero_a{
+      color: @HnavColor;
+      text-align: center;
+      font-family: 'Unica One', cursive;
+      font-size: 50px;
+      font-weight: bold;
+      padding-left: 2vw;
+      margin-right: 1vw;
+      text-shadow: 5px 2px 10px #c7c8de;
+      display: inline;
+    }
+    a.Hero_a{
+      text-decoration: none;
+    }
+    .customUList{
+      font-size: 30px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: normal;
+      display: inline;
+    }
+    .customList{
+      Display: inline;
+      padding-right: 15px;
+      color: @HnavColor;
+      font-family: inherit;
+      text-align: left;
+    }
+    .navDiv{
+    }
+    .inlineDisp{
+    }
+    .dropdown-toggle{
+      color: inherit;
+    }
+    .blendMode{
+      mix-blend-mode: darken;
+      position: relative;
+      top: 0;
+      width: 75px;
+      margin: auto 0 2px 0;
+      display: inline;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .cusDiv{
+    min-width: 900px;
+    //max-width: 780px;
+  }
+}

@@ -1,0 +1,12 @@
+<div *ngIf="HeroesDataS">
+  <div class="card">
+    <app-chart-hero class="card-body" [data]="HeroesDataS"  [yValue]="Str"></app-chart-hero>
+  </div>
+  <div class="card">
+    <app-chart-hero class="card-body" [data]="HeroesDataS" [yValue]="Ag"></app-chart-hero>
+  </div>
+  <div class="card">
+    <app-chart-hero class="card-body" [data]="HeroesDataS" [yValue]="Int"></app-chart-hero>
+  </div>
+
+</div>

@@ -1,0 +1,28 @@
+<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+<div class="BlockCard" align="center">
+  <div class="card" >
+    <div *ngIf="infoLink&&selectedLinkInfo ">
+      <div class="TitleName align-center"> {{selectedHeroName | uppercase}} </div>
+      <div class="outlinePic">
+        <img class="card-img-top" [src] = selectedHeroPortrait alt=`${selectedHeroPortrait}`>
+      </div>
+      <div class="card-body align-left">
+        <div class="card-text">
+          <div class="outlineText">
+            <div class="ConText">
+                <div class="header" > STATS</div>
+              <div class="Stat align-left"> Strength: {{selectedHeroStr}}</div>
+              <div class="Stat align-left"> Agility: {{selectedHeroAg}}</div>
+              <div class="Stat align-left"> Intelligence: {{selectedHeroInt}}</div>
+            </div>
+          </div>
+          <div class="header headerline align-left"> Description:</div>
+          <div class="text-justify" >
+            <pre class="descript">{{description}}</pre>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-dark" id="Bbutton" (click)="goBack()">&#8678; Back</button>
+    </div>
+  </div>
+</div>
