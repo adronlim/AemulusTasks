@@ -1,12 +1,18 @@
-<div *ngIf="HeroesDataS">
-  <div class="card">
-    <app-chart-hero class="card-body" [data]="HeroesDataS"  [yValue]="Str"></app-chart-hero>
-  </div>
-  <div class="card">
-    <app-chart-hero class="card-body" [data]="HeroesDataS" [yValue]="Ag"></app-chart-hero>
-  </div>
-  <div class="card">
-    <app-chart-hero class="card-body" [data]="HeroesDataS" [yValue]="Int"></app-chart-hero>
-  </div>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<div *ngIf="HeroesDataS" class="statDiv">
+  <!--  <div *ngFor="let chartSetting of ChartSetting; let i = index">-->
+  <!--    <div class="card">-->
+  <!--      <app-chart-hero class="card-body"      [data]="HeroesDataS" [Hkey]="key[i]" [yValue]=chartSetting></app-chart-hero>-->
+  <!--    </div>-->
+  <!--    <div class="card">-->
+  <!--      <app-histogram-chart class="card-body" [data]="HeroesDataS" [Hkey]="key[i]" [yValue]=chartSetting></app-histogram-chart>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
+  <!--  <div class="card" >-->
+  <!--    <app-stack-column-chart class="card-body" [Skey]="key" [Sdata]="HeroesDataS" [yValue]="Stacked" ></app-stack-column-chart>-->
+  <!--  </div>-->
+  <div>
+    <app-histogram-layered></app-histogram-layered>
+  </div>
 </div>

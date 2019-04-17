@@ -1,4 +1,18 @@
 {
+  "statSetting": [
+    {
+      "stateName": "strength",
+      "stateColor": "#FE5257"
+    },
+    {
+      "stateName": "Agility",
+      "stateColor": "#54EC4C"
+    },
+    {
+      "stateName": "Intelligence",
+      "stateColor": "#9BA2FF"
+    }
+  ],
   "HEROES" : [
     [
       { "id": 11, "name": "Mr. Nice"  , "str": 10, "ag": 6, "int": 4  },

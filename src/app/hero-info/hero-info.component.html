@@ -1,10 +1,10 @@
 <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
 <div class="BlockCard" align="center">
   <div class="card" >
-    <div *ngIf="infoLink&&selectedLinkInfo ">
+    <div *ngIf="infoLink&&HeroesInfo">
       <div class="TitleName align-center"> {{selectedHeroName | uppercase}} </div>
       <div class="outlinePic">
-        <img class="card-img-top" [src] = selectedHeroPortrait alt=`${selectedHeroPortrait}`>
+        <img [src]=selectedHeroPortrait alt="{{selectedHeroPortrait}}}" class="card-img-top">
       </div>
       <div class="card-body align-left">
         <div class="card-text">

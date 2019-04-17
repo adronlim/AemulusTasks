@@ -1,4 +1,21 @@
 {
+  "fontF": [
+    {}
+  ],
+  "statSetting": [
+    {
+      "statName": "Strength",
+      "statColor": "#FF6D69"
+    },
+    {
+      "statName": "Agility",
+      "statColor": "#65F76F"
+    },
+    {
+      "statName": "Intelligence",
+      "statColor": "#9674F3"
+    }
+  ],
   "HEROES" : [
     [
       { "id": 11, "name": "Mr. Nice"  , "str": 10, "ag": 6, "int": 4  },
@@ -24,5 +41,4 @@
       { "id": 30, "name": "Zoraid"    , "str":  2, "ag": 5, "int": 13 }
     ]
   ]
-
 }

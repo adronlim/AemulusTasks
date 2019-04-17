@@ -1,9 +1,7 @@
-import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as am4core from '@amcharts/amcharts4/core';
-import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import {HeroDataService} from '../hero-data.service';
-import {Hero} from '../../hero';
 
 am4core.useTheme(am4themes_animated);
 
@@ -16,17 +14,26 @@ am4core.useTheme(am4themes_animated);
 export class HeroStatisticComponent implements OnInit {
   HeroesDataS: any;
   ChartData: any = [];
+  MediaSize: any;
   Str = 'str';
   Ag = 'ag';
   Int = 'int';
+  Stacked = 'stacked';
+  key: Array<string> = [];
+  ChartSetting: Array<string> = [];
 
   constructor(private HeroService: HeroDataService) {}
   ngOnInit() {
+    this.MediaSize = window.innerWidth;
+
     this.HeroService.getHeroes().subscribe(Data => {
       this.HeroesDataS = Data.HEROES;
-      console.log(Object.values(this.HeroesDataS));
+      this.ChartSetting = Data.statSetting;
+      this.key = Object.keys(this.HeroesDataS[0][0]);
+      this.key.splice(0, 2);
+      console.log(this.key);
       console.log(this.HeroesDataS);
+      console.log(this.ChartSetting);
     });
   }
-
 }

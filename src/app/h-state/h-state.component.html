@@ -13,7 +13,7 @@
         </thead>
         <tr routerLink="/HeroInfo/{{i + 1}}/{{hero.id}}" class="clickSort" id="sHeroD" *ngFor="let hero of heroes | filter : Swords ">
           <td>{{hero.id}}</td>
-          <td class="HeroesInfo " (click)="HeroInfo()">{{hero.name}}</td>
+          <td class="HeroesInfo ">{{hero.name}}</td>
           <td>{{hero.str}}</td>
           <td>{{hero.ag }}</td>
           <td>{{hero.int}}</td>
