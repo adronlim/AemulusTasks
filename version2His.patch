@@ -1,0 +1,892 @@
+Index: src/app/hero-stat/hero-stat.component.html
+===================================================================
+--- src/app/hero-stat/hero-stat.component.html	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-stat/hero-stat.component.html	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
+@@ -1,39 +0,0 @@
+-<h1>{{hero}}</h1>
+-
+-<table border="1">
+-	<tr> 
+-		<td>
+-			ID
+-		</td>
+-		<td>
+-			Heroes Name
+-		</td>
+-		<td>
+-			Str
+-		</td>
+-		<td>
+-			Ag
+-		</td>
+-		<td>
+-			Int
+-		</td>
+-	</tr>
+-	<tr *ngFor="let hero of heroes">
+-		<td>
+-			{{hero.id}}
+-		</td>
+-		<td>
+-			{{hero.name}}
+-		</td>
+-		<td>
+-			{{hero.str}}
+-		</td>
+-		<td>
+-			{{hero.ag}}
+-		</td>
+-		<td>
+-			{{hero.int}}
+-		</td>
+-	</tr>
+-
+-</table>>
+\ No newline at end of file
+Index: src/app/hero-stat/hero-stat.component.less
+===================================================================
+--- src/app/hero-stat/hero-stat.component.less	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-stat/hero-stat.component.less	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
+@@ -1,2 +0,0 @@
+-@import '~bootstrap/dist/css/bootstrap.css';
+-@import '~font-awesome/css/font-awesome.css';
+Index: src/app/hero-stat/hero-stat.component.spec.ts
+===================================================================
+--- src/app/hero-stat/hero-stat.component.spec.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-stat/hero-stat.component.spec.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
+@@ -1,25 +0,0 @@
+-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+-
+-import { HeroStatComponent } from './hero-stat.component';
+-
+-describe('HeroStatComponent', () => {
+-  let component: HeroStatComponent;
+-  let fixture: ComponentFixture<HeroStatComponent>;
+-
+-  beforeEach(async(() => {
+-    TestBed.configureTestingModule({
+-      declarations: [ HeroStatComponent ]
+-    })
+-    .compileComponents();
+-  }));
+-
+-  beforeEach(() => {
+-    fixture = TestBed.createComponent(HeroStatComponent);
+-    component = fixture.componentInstance;
+-    fixture.detectChanges();
+-  });
+-
+-  it('should create', () => {
+-    expect(component).toBeTruthy();
+-  });
+-});
+Index: src/app/hero-stat/hero-stat.component.ts
+===================================================================
+--- src/app/hero-stat/hero-stat.component.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-stat/hero-stat.component.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
+@@ -1,23 +0,0 @@
+-import { Component, OnInit, Input } from '@angular/core';
+-import { Hero } from 'src/hero';
+-import { HEROES } from "src/mock-hero";  		//Cannot ../
+-
+-@Component({
+-  selector: 'app-hero-stat',
+-  templateUrl: './hero-stat.component.html',
+-  styleUrls: ['./hero-stat.component.less']
+-})
+-export class HeroStatComponent implements OnInit {
+-	
+-  //@Input() heroDetails;
+-
+-  //heroes = HEROES;
+-  //hero:Hero;
+-
+-  constructor() { }
+-
+-  ngOnInit() {
+-  	//this.hero = this.heroDetails;
+-  }
+-
+-}
+Index: src/assets/Heroes.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/assets/Heroes.json	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/assets/Heroes.json	(date 1555469658502)
+@@ -1,4 +1,21 @@
+ {
++  "fontF": [
++    {}
++  ],
++  "statSetting": [
++    {
++      "statName": "Strength",
++      "statColor": "#FF6D69"
++    },
++    {
++      "statName": "Agility",
++      "statColor": "#65F76F"
++    },
++    {
++      "statName": "Intelligence",
++      "statColor": "#9674F3"
++    }
++  ],
+   "HEROES" : [
+     [
+       { "id": 11, "name": "Mr. Nice"  , "str": 10, "ag": 6, "int": 4  },
+@@ -24,5 +41,4 @@
+       { "id": 30, "name": "Zoraid"    , "str":  2, "ag": 5, "int": 13 }
+     ]
+   ]
+-
+ }
+Index: package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- package-lock.json	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ package-lock.json	(date 1554111458112)
+@@ -171,6 +171,23 @@
+         "tslib": "^1.9.0"
+       }
+     },
++    "@angular/cdk": {
++      "version": "7.3.6",
++      "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-7.3.6.tgz",
++      "integrity": "sha512-ZuOz8nQk0bdo8YyNFcwnmSl4MPaQDAFTbLK29w4Vd/LfPnhBI3pAr0wVuPFb0fl3eSvvUrfTb/+kPbQcE07A0A==",
++      "requires": {
++        "parse5": "^5.0.0",
++        "tslib": "^1.7.1"
++      },
++      "dependencies": {
++        "parse5": {
++          "version": "5.1.0",
++          "resolved": "https://registry.npmjs.org/parse5/-/parse5-5.1.0.tgz",
++          "integrity": "sha512-fxNG2sQjHvlVAYmzBZS9YlDp6PTSSDwa98vkD4QgVDDCAo84z5X1t5XyJQ62ImdLXx5NdIIfihey6xpum9/gRQ==",
++          "optional": true
++        }
++      }
++    },
+     "@angular/cli": {
+       "version": "7.3.6",
+       "resolved": "https://registry.npmjs.org/@angular/cli/-/cli-7.3.6.tgz",
+Index: src/app/content-area/content-area.component.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/content-area/content-area.component.less	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/content-area/content-area.component.less	(date 1554197346649)
+@@ -1,6 +1,0 @@
+-@media only screen and (max-width: 430px) {
+-  .container{
+-    margin-right: 10px;
+-    margin-left: 10px;
+-  }
+-}
+Index: Heroes.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Heroes.json	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ Heroes.json	(date 1555469656304)
+@@ -1,4 +1,18 @@
+ {
++  "statSetting": [
++    {
++      "stateName": "strength",
++      "stateColor": "#FE5257"
++    },
++    {
++      "stateName": "Agility",
++      "stateColor": "#54EC4C"
++    },
++    {
++      "stateName": "Intelligence",
++      "stateColor": "#9BA2FF"
++    }
++  ],
+   "HEROES" : [
+     [
+       { "id": 11, "name": "Mr. Nice"  , "str": 10, "ag": 6, "int": 4  },
+Index: src/app/home/home.component.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/home/home.component.less	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/home/home.component.less	(date 1555469656666)
+@@ -1,7 +1,7 @@
+ //div{
+ //  font-size: 50vw;
+ 
+-.container
++.cont
+ {
+   position: absolute;
+   width: 100%;
+@@ -54,49 +54,37 @@
+     width: 100%;
+     font-size: 6vw;
+     opacity: 0.9;
+-
+   }
+ }
+-//.container
+-//{
+-//  //padding: 0 0 0 0;
+-//  //margin: 0 0 0 0;
+-//  height: 100%;
+-//  width: 100%;
+-//}
++
+ @media (min-width: 1200px){
+-  .container {
+-    max-width: 100%;
+-  }
++  //.container {
++  //  max-width: 100%;
++  //}
+   .WelDiv{
+-    min-width: 780px;
+-  }
+-}
+-@media (min-width: 992px){
+-  .container {
+     max-width: 100%;
+   }
+ }
+-@media only screen and (max-width: 800px) {
+-  .container{
+-    min-width: 780px;
+-    max-width: 780px;
+-    //max-width: 625px;
+-  }
+-}
+-@media (min-width: 768px){
+-  .container {
+-    max-width: 100%;
+-  }
+-}
+-@media (min-width: 576px){
+-  .container {
+-    max-width: 100%;
+-  }
+-}
+-//@media (min-width: 500px) {
+-//  .WelDiv {
+-//    width: 100%;
+-//    font-size: ;
++
++//@media (min-width: 992px){
++//  .container {
++//    max-width: 100%;
++//  }
++//}
++//@media only screen and (max-width: 800px) {
++//  .container{
++//    min-width: 780px;
++//    max-width: 780px;
++//    //max-width: 625px;
++//  }
++//}
++//@media (min-width: 768px){
++//  .container {
++//    max-width: 100%;
++//  }
++//}
++//@media (min-width: 576px){
++//  .container {
++//    max-width: 100%;
+ //  }
+ //}
+Index: src/app/hero-info/hero-info.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/hero-info/hero-info.component.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-info/hero-info.component.ts	(date 1555469655980)
+@@ -1,8 +1,9 @@
+-import { Component, OnInit } from '@angular/core';
+-import { Location } from '@angular/common';
+-import { ActivatedRoute } from '@angular/router';
+-import { HeroDataService} from '../hero-data.service';
+-import { Hero } from '../../hero';
++import {Component, OnInit} from '@angular/core';
++import {Location} from '@angular/common';
++import {ActivatedRoute} from '@angular/router';
++import {HeroDataService} from '../hero-data.service';
++import {Hero} from '../../hero';
++
+ @Component({
+   selector: 'app-hero-info',
+   templateUrl: './hero-info.component.html',
+@@ -43,6 +44,7 @@
+       this.selectedHeroPortrait = this.selectedLinkInfo.portrait;
+       this.selectedHeroDescription = this.selectedLinkInfo.description;
+       console.log(this.selectedHeroDescription);
++
+       this.HeroDService.getLoremIpsum(this.selectedHeroDescription).subscribe(LIdescript => {
+         if (this.selectedHeroDescription) {
+           console.log(LIdescript);
+@@ -51,12 +53,13 @@
+         }
+       });
+     });
++
+     this.HeroDService.getHeroes().subscribe(Heroes => {
+       // Loop through the data file, find and match the id to get the data.
+-      console.log( Object.values(Heroes)[0] );
+-      this.HeroesInfo = Object.values(Heroes);
+-      console.log(Object.values(this.HeroesInfo[0]).length);
+-      this.heroInfo = this.findSelectedInfo( this.HeroesInfo[0], this.table );
++      console.log(Object.values(Heroes)[1]);
++      this.HeroesInfo = Heroes.HEROES;
++      console.log(this.HeroesInfo);
++      this.heroInfo = this.findSelectedInfo(this.HeroesInfo, this.table);
+       console.log(this.HeroesInfo);
+       this.selectedHeroName = this.heroInfo.name;
+       this.selectedHeroStr = this.heroInfo.str;
+@@ -70,15 +73,15 @@
+   findSelectedInfo(TinfoLink: any, TNum: number ): Hero {
+     let i;
+     i = 0;
+-    while (TinfoLink !== null || TinfoLink !== undefined) {
++    while (TinfoLink !== null && TinfoLink !== undefined) {
+       if ( TinfoLink[TNum - 1][i].id == this.id) {
+         return TinfoLink[TNum - 1][i];
+       }
+-      i++;
+       if ( TinfoLink[TNum - 1][i] === null || TinfoLink[TNum - 1][i] === undefined ) {
+         console.log(`The information Link is ${TinfoLink[TNum - 1][i]}`);
+         break;
+       }
++      i++;
+     }
+   }
+ }
+Index: src/app/home/home.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/home/home.component.html	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/home/home.component.html	(date 1554196599976)
+@@ -1,5 +1,5 @@
+ <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+-<div class="container">
++<div class="cont">
+   <img class="imageHome" src="../../assets/Background/Chaos_heroes_2.jpg" alt="chaoheroes">
+   <div class="WelDiv" (click)="reload()">W E L C O M E</div>
+ </div>
+Index: src/app/hero-statistic/hero-statistic.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/hero-statistic/hero-statistic.component.html	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-statistic/hero-statistic.component.html	(date 1555469656383)
+@@ -1,12 +1,18 @@
+-<div *ngIf="HeroesDataS">
+-  <div class="card">
+-    <app-chart-hero class="card-body" [data]="HeroesDataS"  [yValue]="Str"></app-chart-hero>
+-  </div>
+-  <div class="card">
+-    <app-chart-hero class="card-body" [data]="HeroesDataS" [yValue]="Ag"></app-chart-hero>
+-  </div>
+-  <div class="card">
+-    <app-chart-hero class="card-body" [data]="HeroesDataS" [yValue]="Int"></app-chart-hero>
++<meta content="width=device-width, initial-scale=1.0" name="viewport">
++<div *ngIf="HeroesDataS" class="statDiv">
++  <!--  <div *ngFor="let chartSetting of ChartSetting; let i = index">-->
++  <!--    <div class="card">-->
++  <!--      <app-chart-hero class="card-body"      [data]="HeroesDataS" [Hkey]="key[i]" [yValue]=chartSetting></app-chart-hero>-->
++  <!--    </div>-->
++  <!--    <div class="card">-->
++  <!--      <app-histogram-chart class="card-body" [data]="HeroesDataS" [Hkey]="key[i]" [yValue]=chartSetting></app-histogram-chart>-->
++  <!--    </div>-->
++  <!--  </div>-->
++
++  <!--  <div class="card" >-->
++  <!--    <app-stack-column-chart class="card-body" [Skey]="key" [Sdata]="HeroesDataS" [yValue]="Stacked" ></app-stack-column-chart>-->
++  <!--  </div>-->
++  <div>
++    <app-histogram-layered></app-histogram-layered>
+   </div>
+-
+ </div>
+Index: src/app/chart-hero/chart-hero.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/chart-hero/chart-hero.component.html	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/chart-hero/chart-hero.component.html	(date 1555469656731)
+@@ -1,2 +1,2 @@
++<div class="chart card-body" id={{yValue.statName}}></div>
+ 
+-<div id={{yValue}}  class="chart card-body"></div>
+Index: src/app/hero-statistic/hero-statistic.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/hero-statistic/hero-statistic.component.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-statistic/hero-statistic.component.ts	(date 1555469643958)
+@@ -1,9 +1,7 @@
+-import { Component, OnInit, NgZone, AfterViewInit } from '@angular/core';
++import {Component, OnInit} from '@angular/core';
+ import * as am4core from '@amcharts/amcharts4/core';
+-import * as am4charts from '@amcharts/amcharts4/charts';
+ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+ import {HeroDataService} from '../hero-data.service';
+-import {Hero} from '../../hero';
+ 
+ am4core.useTheme(am4themes_animated);
+ 
+@@ -16,17 +14,26 @@
+ export class HeroStatisticComponent implements OnInit {
+   HeroesDataS: any;
+   ChartData: any = [];
++  MediaSize: any;
+   Str = 'str';
+   Ag = 'ag';
+   Int = 'int';
++  Stacked = 'stacked';
++  key: Array<string> = [];
++  ChartSetting: Array<string> = [];
+ 
+   constructor(private HeroService: HeroDataService) {}
+   ngOnInit() {
++    this.MediaSize = window.innerWidth;
++
+     this.HeroService.getHeroes().subscribe(Data => {
+       this.HeroesDataS = Data.HEROES;
+-      console.log(Object.values(this.HeroesDataS));
++      this.ChartSetting = Data.statSetting;
++      this.key = Object.keys(this.HeroesDataS[0][0]);
++      this.key.splice(0, 2);
++      console.log(this.key);
+       console.log(this.HeroesDataS);
++      console.log(this.ChartSetting);
+     });
+   }
+-
+ }
+Index: src/app/chart-hero/chart-hero.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/chart-hero/chart-hero.component.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/chart-hero/chart-hero.component.ts	(date 1555469656151)
+@@ -1,8 +1,8 @@
+-import {Component, OnInit, Input, AfterViewInit} from '@angular/core';
++import {AfterViewChecked, AfterViewInit, Component, Input, OnInit} from '@angular/core';
+ import * as am4core from '@amcharts/amcharts4/core';
+ import * as am4charts from '@amcharts/amcharts4/charts';
+ import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+-
++import {BreakpointObserver} from '@angular/cdk/layout';
+ 
+ am4core.useTheme(am4themes_animated);
+ am4core.options.autoSetClassName = true;
+@@ -12,36 +12,45 @@
+   templateUrl: './chart-hero.component.html',
+   styleUrls: ['./chart-hero.component.less']
+ })
+-export class ChartHeroComponent implements OnInit, AfterViewInit {
++export class ChartHeroComponent implements OnInit, AfterViewInit, AfterViewChecked {
+   @Input() data: any = [[], []];
+-  @Input() yValue: string;
++  @Input() yValue: any;
++  @Input() Hkey: string;
++  stack = false;
+   Chart: am4charts.XYChart;
+   chartData: any = [];
+-  constructor() {
+-    console.clear();
++
++  constructor(public breakpointObserver: BreakpointObserver) {
+   }
++
+   ngAfterViewInit() {
++
+     console.log(this.yValue);
+     let yFullName: string;
+     let chartColor: string;
+-
+-    if (this.yValue == 'str') {
+-      this.Chart = am4core.create( this.yValue, am4charts.XYChart);
+-    } else if (this.yValue == 'ag') {
+-      this.Chart = am4core.create('ag', am4charts.XYChart);
+-    } else if (this.yValue == 'int') {
+-      this.Chart = am4core.create('int', am4charts.XYChart);
++    // const x = window.matchMedia('(max-width: 875px)');
++    console.log(this.data);
++    console.log(this.yValue.statName);
++    if (this.yValue.statName === 'Strength') {
++      this.Chart = am4core.create(this.yValue.statName, am4charts.XYChart);
++    } else if (this.yValue.statName === 'Agility') {
++      this.Chart = am4core.create(this.yValue.statName, am4charts.XYChart);
++    } else if (this.yValue.statName === 'Intelligence') {
++      this.Chart = am4core.create(this.yValue.statName, am4charts.XYChart);
+     } else {
+       return;
+     }
+     let chart: am4charts.XYChart;
+     chart = this.Chart;
+-    chart.responsive.enabled = false;
++    chart.percentWidth = 90;
++    chart.align = 'center';
++    chart.scrollbarX = new am4core.Scrollbar();
++    chart.align = 'center';
++    chart.responsive.enabled = true;
+     chart.fontFamily = 'Calibri, serif';
+     chart.fontWeight = 'lighter';
+     let i = 0;
+-    console.log( chart);
+-    console.log(this.data);
++
+ 
+     for (const HeroD of this.data) {
+       for (const hd of HeroD) {
+@@ -49,33 +58,31 @@
+         i++;
+       }
+     }
+-    if (this.yValue == 'str') {
++
++    if (this.yValue.statName == 'Strength') {
+       this.chartData.sort((a, b) => a.str - b.str);
+-    } else if (this.yValue == 'ag') {
++    } else if (this.yValue.statName == 'Agility') {
+       this.chartData.sort((a, b) => a.ag - b.ag);
+-    } else {
++    } else if (this.yValue.statName == 'Intelligence') {
+       this.chartData.sort((a, b) => a.int - b.int);
+     }
+-
+     chart.data = this.chartData;
+-    let title;
+ 
+-    console.log(chart.data);
+     console.log(chart);
+-    switch (this.yValue) {
+-      case 'str': {
+-        yFullName = 'Strength';
+-        chartColor = '#FE5257';
++    switch (this.yValue.statName) {
++      case 'Strength': {
++        yFullName = this.yValue.statName;
++        chartColor = this.yValue.statColor;
+         break;
+       }
+-      case 'ag': {
+-        yFullName = 'Agility';
+-        chartColor = '#54EC4C';
++      case 'Agility': {
++        yFullName = this.yValue.statName;
++        chartColor = this.yValue.statColor;
+         break;
+       }
+-      case 'int': {
+-        yFullName = 'Intelligence';
+-        chartColor = '#9BA2FF';
++      case 'Intelligence': {
++        yFullName = this.yValue.statName;
++        chartColor = this.yValue.statColor;
+         break;
+       }
+       default: {
+@@ -88,34 +95,32 @@
+     categoryAxis.fontSize = '20px';
+     categoryAxis.renderer.grid.template.location = 0;
+     categoryAxis.renderer.minGridDistance = 30;
+-
+-    console.log(chart.data);
+-    let i = 0;
+-    categoryAxis.renderer.labels.template.adapter.add('dy', (dy, target) => {
+-      // console.log(target.dataItem.index);
+-      // console.log('%c' + i, 'background: #222; color: #bada55');
+-      // console.log('%c' + (target.dataItem.index & Number(2 == 2)), 'color: red' );
+-      i++;
+-      if (i % 50 === 0) {
+-        // console.clear();
+-      }
+-      if (target.dataItem && target.dataItem.index & Number(2 == 2)) {
+-        // console.log(target.dataItem.index);
+-        // console.log(target.dataItem.index);
+-        // console.log(target.dataItem.index & Number(2 == 2));
+-        // console.log(dy);
+-        // console.log(i);
+-        // i++;
+-
+-        return dy + 25;
+-      }
+-      return dy;
+-    });
+-    console.log(categoryAxis);
++    categoryAxis.renderer.labels.template.horizontalCenter = 'right';
++    categoryAxis.renderer.labels.template.verticalCenter = 'middle';
++    categoryAxis.renderer.labels.template.rotation = 270;
++    categoryAxis.tooltip.disabled = true;
++    categoryAxis.renderer.minHeight = 110;
+ 
+     const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+     valueAxis.fontSize = '20px';
+ 
++    // this.breakpointObserver
++    //   .observe(['(max-width: 1200px)'])
++    //   .subscribe((state: BreakpointState) => {
++    //     if (state.matches) {
++    //       categoryAxis.fontSize = '15px';
++    //       // categoryAxis.renderer.labels.template.adapter.add('dy', (dy, target) => {
++    //       //   if (target.dataItem && target.dataItem.index & Number(2 == 2)) {
++    //       //     return dy + 25;
++    //       //   }
++    //       //   return dy;
++    //       // });
++    //     } else {
++    //       console.log('900 above');
++    //     }
++    //   });
++
++
+     const topContainer = chart.chartContainer.createChild(am4core.Container);
+     topContainer.layout = 'absolute';
+     topContainer.toBack();
+@@ -131,21 +136,37 @@
+ 
+     // Create series
+     const series = chart.series.push(new am4charts.ColumnSeries());
+-    series.dataFields.valueY = this.yValue;
++    series.sequencedInterpolation = true;
++    series.dataFields.valueY = this.Hkey;
+     series.dataFields.categoryX = 'name';
+     // series.fontSize = '50px';
+     series.name = yFullName;
+     series.fill = am4core.color(chartColor);
+-    // series.stroke = chart.colors.getIndex(0).lighten(0.5);
+     // series.yAxis =
+     series.columns.template.tooltipText = '{categoryX}: [bold]{valueY}[/]';
++    series.columns.template.strokeWidth = 0;
++    series.tooltip.pointerOrientation = 'vertical';
++    series.columns.template.column.cornerRadiusTopLeft = 10;
++    series.columns.template.column.cornerRadiusTopRight = 10;
+     series.columns.template.fillOpacity = .8;
+ 
++
+     const columnTemplate = series.columns.template;
+     columnTemplate.strokeWidth = 1;
+     columnTemplate.strokeOpacity = .5;
+     columnTemplate.width = am4core.percent(100);
++
++    // on hover, make corner radiuses bigger
++    const hoverState = series.columns.template.column.states.create('hover');
++    hoverState.properties.cornerRadiusTopLeft = 0;
++    hoverState.properties.cornerRadiusTopRight = 0;
++    hoverState.properties.fillOpacity = 1;
++
++    // Cursor
++    chart.cursor = new am4charts.XYCursor();
+   }
+ 
++  ngAfterViewChecked() {
++  }
+   ngOnInit() {}
+ }
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- package.json	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ package.json	(date 1554111457188)
+@@ -13,6 +13,7 @@
+   "dependencies": {
+     "@amcharts/amcharts4": "^4.2.6",
+     "@angular/animations": "^7.2.9",
++    "@angular/cdk": "^7.3.6",
+     "@angular/common": "^7.2.9",
+     "@angular/compiler": "^7.2.9",
+     "@angular/core": "^7.2.9",
+Index: src/app/h-state/h-state.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/h-state/h-state.component.html	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/h-state/h-state.component.html	(date 1555469656561)
+@@ -13,7 +13,7 @@
+         </thead>
+         <tr routerLink="/HeroInfo/{{i + 1}}/{{hero.id}}" class="clickSort" id="sHeroD" *ngFor="let hero of heroes | filter : Swords ">
+           <td>{{hero.id}}</td>
+-          <td class="HeroesInfo " (click)="HeroInfo()">{{hero.name}}</td>
++          <td class="HeroesInfo ">{{hero.name}}</td>
+           <td>{{hero.str}}</td>
+           <td>{{hero.ag }}</td>
+           <td>{{hero.int}}</td>
+Index: src/app/nav-bar/nav-bar.component.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/nav-bar/nav-bar.component.less	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/nav-bar/nav-bar.component.less	(date 1554194360568)
+@@ -60,7 +60,7 @@
+ 
+ @media only screen and (max-width: 800px) {
+   .cusDiv{
+-    min-width: 900px;
++    min-width: 800px;
+     //max-width: 780px;
+   }
+ }
+Index: src/app/hero-info/hero-info.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/hero-info/hero-info.component.html	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-info/hero-info.component.html	(date 1555469658430)
+@@ -1,10 +1,10 @@
+ <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+ <div class="BlockCard" align="center">
+   <div class="card" >
+-    <div *ngIf="infoLink&&selectedLinkInfo ">
++    <div *ngIf="infoLink&&HeroesInfo">
+       <div class="TitleName align-center"> {{selectedHeroName | uppercase}} </div>
+       <div class="outlinePic">
+-        <img class="card-img-top" [src] = selectedHeroPortrait alt=`${selectedHeroPortrait}`>
++        <img [src]=selectedHeroPortrait alt="{{selectedHeroPortrait}}}" class="card-img-top">
+       </div>
+       <div class="card-body align-left">
+         <div class="card-text">
+Index: src/app/hero-data.service.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/hero-data.service.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-data.service.ts	(date 1555469656462)
+@@ -1,5 +1,5 @@
+-import { Injectable } from '@angular/core';
+-import { HttpClient } from '@angular/common/http';
++import {Injectable} from '@angular/core';
++import {HttpClient} from '@angular/common/http';
+ // import { HeroInt } from '../heroInterface';
+ import 'rxjs/add/operator/map';
+ import {Observable} from 'rxjs';
+@@ -23,4 +23,9 @@
+     console.log(url);
+     return this.httpClient.get<any>(url);
+   }
++
++  getRData(url: string): Observable<any> {
++    console.log(url);
++    return this.httpClient.get<any>(url);
++  }
+ }
+Index: src/app/hero-statistic/hero-statistic.component.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/hero-statistic/hero-statistic.component.less	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/hero-statistic/hero-statistic.component.less	(date 1555469656098)
+@@ -1,6 +1,19 @@
+ 
+ .card{
+   margin: 80px auto 80px auto;
+-  padding: 10px 80px 80px 80px;
++  padding: 10px auto 80px auto;
+   width: 90%;
++  height: 750px;
++  position: static;
++}
++
++.statDiv {
++}
++
++@media only screen and (max-width: 800px) {
++  .card {
++    min-width: 800px;
++    margin: auto;
++    //max-width: 780px;
++  }
+ }
+Index: src/app/chart-hero/chart-hero.component.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/chart-hero/chart-hero.component.less	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/chart-hero/chart-hero.component.less	(date 1554356397784)
+@@ -1,3 +1,3 @@
+ .chart{
+-  height: 500px;
++  height: 90%;
+ }
+Index: src/app/app.module.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/app.module.ts	(revision 8e2a55750e764e8cdd5311b2fbc5eec1e72d2251)
++++ src/app/app.module.ts	(date 1555469643817)
+@@ -1,26 +1,28 @@
+-import { BrowserModule } from '@angular/platform-browser';
+-import { NgModule } from '@angular/core';
+-import { FormsModule } from '@angular/forms';
+-import { AppRoutingModule } from './app-routing.module';
+-import { RouterModule, Routes } from '@angular/router';   // Routes
+-import { FilterPipe } from './filter.pipe';
+-import { HeroDataService } from './hero-data.service';
++import {BrowserModule} from '@angular/platform-browser';
++import {NgModule} from '@angular/core';
++import {FormsModule} from '@angular/forms';
++import {AppRoutingModule} from './app-routing.module';
++import {FilterPipe} from './filter.pipe';
++import {HeroDataService} from './hero-data.service';
+ 
+-import { AppComponent } from './app.component';
+-import { HeroStatComponent } from './hero-stat/hero-stat.component';
+-import { HStateComponent } from './h-state/h-state.component';
+-import { NavBarComponent } from './nav-bar/nav-bar.component';
+-import { ContentAreaComponent } from './content-area/content-area.component';
+-import { SearchComponent } from './search/search.component';
+-import { HttpClientModule } from '@angular/common/http';
+-import { HomeComponent } from './home/home.component';
+-import { HeroInfoComponent } from './hero-info/hero-info.component';
+-import { HeroStatisticComponent } from './hero-statistic/hero-statistic.component';
+-import { ChartHeroComponent } from './chart-hero/chart-hero.component';
++import {AppComponent} from './app.component';
++import {HStateComponent} from './h-state/h-state.component';
++import {NavBarComponent} from './nav-bar/nav-bar.component';
++import {ContentAreaComponent} from './content-area/content-area.component';
++import {SearchComponent} from './search/search.component';
++import {HttpClientModule} from '@angular/common/http';
++import {HomeComponent} from './home/home.component';
++import {HeroInfoComponent} from './hero-info/hero-info.component';
++import {HeroStatisticComponent} from './hero-statistic/hero-statistic.component';
++import {ChartHeroComponent} from './chart-hero/chart-hero.component';
++import {StackColumnChartComponent} from './stack-column-chart/stack-column-chart.component';
++import {HistogramChartComponent} from './histogram-chart/histogram-chart.component';
++import {HistogramLayeredComponent} from './histogram-layered/histogram-layered.component';
++
+ @NgModule({
+   imports:      [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule], // <-- debugging purposes only)
+-  declarations: [AppComponent, HeroStatComponent, HStateComponent, FilterPipe,
+-    NavBarComponent, ContentAreaComponent, SearchComponent, HomeComponent, HeroInfoComponent, HeroStatisticComponent, ChartHeroComponent],
++  declarations: [AppComponent, HStateComponent, FilterPipe,
++    NavBarComponent, ContentAreaComponent, SearchComponent, HomeComponent, HeroInfoComponent, HeroStatisticComponent, ChartHeroComponent, StackColumnChartComponent, HistogramChartComponent, HistogramLayeredComponent],
+   providers:    [HeroDataService],
+   bootstrap:    [AppComponent]
+ })

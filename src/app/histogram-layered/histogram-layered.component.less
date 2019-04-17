@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, sans-serif;
+  margin: 0
+}
+
+.myChart {
+  display: none;
+  height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  position: absolute;
+  margin: 10px 50px auto 50px;
+
+}
+
+.layeredHis {
+}
+
+#layHisdiv1 {
+  margin: auto auto auto auto;
+  height: 90%;
+  max-width: 95%;
+  min-width: 95%;
+  horiz-align: center;
+  position: absolute;
+}
+
+#layHisdiv2 {
+  margin: auto auto auto auto;
+  height: 90%;
+  max-width: 95%;
+  min-width: 95%;
+  position: absolute;
+
+}
+
+.card {
+  margin: 50px auto 20px auto;
+  padding: 10px auto 80px auto;
+  width: 95%;
+  height: 650px;
+  max-width: 1500px;
+  position: relative;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease-in-out;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  vertical-align: center;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.faded {
+  animation-name: faded;
+  animation-duration: 1.5s;
+}
+
+@keyframes faded {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+
+
+
+
+
+
+
+
