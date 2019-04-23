@@ -187,7 +187,6 @@ export class LayeredHistogramChartComponent implements OnInit, AfterViewInit {
       // let intervalY: number;
       // let accumulatedInterval: number;
       // intervalY = this.unifiedData[this.unifiedData.length - 1] / this.unifiedData.length;
-
       // for (c; c < this.unifiedData.length - 2; c++) {
       // If the difference not more than or equal to 50%
       // Cond1 = ((this.unifiedData[c] - this.unifiedData[c + 1]) / (this.unifiedData[c] / 2) >= 0.5);
