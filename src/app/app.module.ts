@@ -18,11 +18,12 @@ import {ChartHeroComponent} from './chart-hero/chart-hero.component';
 import {StackColumnChartComponent} from './stack-column-chart/stack-column-chart.component';
 import {HistogramChartComponent} from './histogram-chart/histogram-chart.component';
 import {HistogramLayeredComponent} from './histogram-layered/histogram-layered.component';
+import {LayeredHistogramChartComponent} from './layered-histogram-chart/layered-histogram-chart.component';
 
 @NgModule({
   imports:      [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule], // <-- debugging purposes only)
   declarations: [AppComponent, HStateComponent, FilterPipe,
-    NavBarComponent, ContentAreaComponent, SearchComponent, HomeComponent, HeroInfoComponent, HeroStatisticComponent, ChartHeroComponent, StackColumnChartComponent, HistogramChartComponent, HistogramLayeredComponent],
+    NavBarComponent, ContentAreaComponent, SearchComponent, HomeComponent, HeroInfoComponent, HeroStatisticComponent, ChartHeroComponent, StackColumnChartComponent, HistogramChartComponent, HistogramLayeredComponent, LayeredHistogramChartComponent],
   providers:    [HeroDataService],
   bootstrap:    [AppComponent]
 })
